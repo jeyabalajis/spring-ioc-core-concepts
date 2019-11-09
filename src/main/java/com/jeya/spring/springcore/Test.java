@@ -3,6 +3,8 @@ package com.jeya.spring.springcore;
 import org.springframework.context.support.AbstractApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
+import com.jeya.spring.springcore.dependencycheck.Prescription;
+import com.jeya.spring.springcore.innerbeans.Employee;
 import com.jeya.spring.springcore.lifecycle.TicketReservation;
 import com.jeya.spring.springcore.map.Customer;
 import com.jeya.spring.springcore.reftypes.Student;
@@ -13,7 +15,7 @@ public class Test {
 	public static void main(String[] args) {
 		AbstractApplicationContext ctx = new ClassPathXmlApplicationContext("config.xml");
 		
-		Employee emp = (Employee) ctx.getBean("emp");
+		Employee employee = (Employee) ctx.getBean("employee");
 		
 		Customer customer = (Customer) ctx.getBean("customer");
 		
@@ -24,8 +26,10 @@ public class Test {
 
 		TicketReservation ticketReservation = (TicketReservation) ctx.getBean("ticketReservation");
 		
-		System.out.println("Employee ID: " + emp.getId());
-		System.out.println("Employee Name: " + emp.getName());
+		
+		Prescription prescription = (Prescription) ctx.getBean("prescription");
+		
+		System.out.println(employee);
 		
 		System.out.println(customer);
 		
@@ -34,6 +38,8 @@ public class Test {
 		System.out.println(shoppingCart);
 		
 		System.out.println(ticketReservation);
+		
+		System.out.println(prescription);
 		
 		ctx.registerShutdownHook();
 		
