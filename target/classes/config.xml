@@ -76,11 +76,21 @@
 		class="com.jeya.spring.springcore.dependencycheck.Prescription"
 		p:id="10"></bean>
 
+	<bean name="address" class="com.jeya.spring.springcore.innerbeans.Address" p:houseNo="123" p:street="Vivekananda cross street" p:city="Dubai">
+	</bean>
+
+	<bean name="university"
+		class="com.jeya.spring.springcore.dependencycheck.University"
+		p:id="10" scope="prototype">
+		<property name="location" ref="address"/>
+		<property name="name" value="Madurai Kamararaj University"/>
+	</bean>
+
 
 	<!-- Note that address is used as an inner bean here and not as a ref bean that is independently injectable -->
 	<bean name="employee"
 		class="com.jeya.spring.springcore.innerbeans.Employee" p:id="123"
-		p:name="employee">
+		p:name="employee" scope="singleton">
 		<property name="address">
 			<bean class="com.jeya.spring.springcore.innerbeans.Address" p:houseNo="123" p:street="Vivekananda cross street" p:city="Dubai">
 			</bean>
