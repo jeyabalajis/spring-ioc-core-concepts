@@ -11,12 +11,19 @@
 		p:houseNo="123" p:street="mira mesa" p:city="San Diego">
 	</bean>
 
+	<!-- Manual wiring -->
 	<bean name="employee"
 		class="com.jeya.spring.springcore.constructorInjection.Employee">
 		<constructor-arg value="123" />
 		<constructor-arg ref="address" />
 	</bean>
 
+<!--  auto wired by the container -->
+<!-- 
+	<bean name="employee"
+		class="com.jeya.spring.springcore.constructorInjection.Employee" c:id="123" autowire="byType">
+	</bean>
+ -->
 
 	<!-- Use this if ypu want to use compact c schema notation -->
 	<!-- <bean name="employee" class="com.jeya.spring.springcore.constructorInjection.Employee" 
