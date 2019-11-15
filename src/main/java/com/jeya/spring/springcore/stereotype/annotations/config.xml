@@ -6,15 +6,6 @@
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
 
 
-	<bean name="reservation"
-		class="com.jeya.spring.springcore.autowired.Reservation" p:id="123"
-		p:time="12:30:00">
-	</bean>
-
-	<!-- reservation auto wired by the container, both the parent object and referred object are injected through setter based injection -->
-	<bean name="customer"
-		class="com.jeya.spring.springcore.autowired.Customer" p:name="jeya"
-		autowire="byType">
-	</bean>
-	<context:annotation-config></context:annotation-config>
+	<context:component-scan
+		base-package="com.jeya.spring.springcore.stereotype.annotations"></context:component-scan>
 </beans>
